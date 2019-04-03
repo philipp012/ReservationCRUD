@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>LÖÖ🅱S Reservation</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">LÖÖ🅱S</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Home </a>
+            <a class="nav-item nav-link" href="/menue">Menue</a>
+            <a class="nav-item nav-link" href="/add-reservation">add Reservation</a>
+            <a class="nav-item nav-link active" href="/list-reservations">show Reservations</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>Erfasste Reservation: </h1>
+    <div class="jumbotron" th:if="{reservations.empty}">
+        <p>No reservations found</p>
+    </div>
+    <div class="jumbotron" th:each="reservation : ${reservations}">
+        <p th:text="'Id: ' + ${reservation.id}"></p>
+        <p th:text="'Angaben: ' + ${reservation.content}"></p>
+        <a class="btn btn-info" href="/addreservation">Add reservation</a>
+        <a class="btn btn-danger" href="@{/delete-reservation?id={id} {id=${reservation.id}}">Delete reservation</a>
+    </div>
+</div>
+
+</body>
+</html>

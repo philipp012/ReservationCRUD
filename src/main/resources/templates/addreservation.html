@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>LÖÖ🅱S Reservation erfassen</title>
+
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">LÖÖ🅱S</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Home </a>
+            <a class="nav-item nav-link" href="/menue">Menue</a>
+            <a class="nav-item nav-link active" href="/add-reservation">add Reservation</a>
+            <a class="nav-item nav-link" href="/list-reservations">show Reservations</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="p-3">
+        <h1>Reservation</h1>
+        <div class="jumbotron">
+            <form action="#" th:action="@{/reservation}" th:object="${reservation}" method="post">
+                <table class="table table-striped">
+                    <tr>
+                        <td>
+                            <p>Id:</p>
+                        </td>
+                        <td class="float-right">
+                            <input type="text" class="form-control" th:field="*{id}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Angaben: </p>
+                        </td>
+                        <td class="float-right">
+                            <input type="text" class="form-control" th:field="*{content}"/>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-success" type="submit" value="Bestätigen"/>
+
+                        </td>
+                        <td class="float-right">
+                            <a href="index.html">
+                                <input class="btn btn-danger" type="button" value="Abbrechen">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
